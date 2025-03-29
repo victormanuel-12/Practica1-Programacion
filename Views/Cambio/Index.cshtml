@@ -1,0 +1,50 @@
+@model practicaprogra.Models.CambioModel
+
+@{
+    ViewData["Title"] = "Conversor de Moneda";
+}
+
+<div class="container mt-5">
+    <h2 class="mb-4">Conversor de Moneda</h2>
+
+    <form asp-action="Index" method="post" class="border p-4 rounded shadow-sm bg-light">
+        <div class="mb-3">
+            <label for="Cantidad" class="form-label">Cantidad a convertir</label>
+            <input asp-for="Cantidad" class="form-control" placeholder="Ingrese cantidad" />
+        </div>
+
+        <div class="mb-3">
+            <label for="PaisOrigen" class="form-label">De:</label>
+            <select asp-for="PaisOrigen" class="form-select">
+                <option value="BRL">🇧🇷 BRL - Real Brasileño</option>
+                <option value="PEN">🇵🇪 PEN - Sol Perú</option>
+                <option value="USD">🇧🇷 USD - Dolares</option>
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label for="PaisDestino" class="form-label">A:</label>
+            <select asp-for="PaisDestino" class="form-select">
+                <option value="PEN">🇵🇪 PEN - Sol Perú</option>
+                <option value="BRL">🇧🇷 BRL - Real Brasileño</option>
+                <option value="USD">🇧🇷 USD - Dolares</option>
+            </select>
+        </div>
+
+        
+
+        <button type="submit" class="btn btn-primary">Hacer cambio</button>
+    </form>
+
+    @if (ViewBag.Mensaje != null)
+    {
+        <div class="alert alert-success mt-4">
+            @ViewBag.Mensaje
+        </div>
+        <button><a class="nav-link text-dark" asp-area="" asp-controller="Cambio" asp-action="Formulario">Ingresar Datos</a></button>
+    }
+</div>
+
+
+
+
