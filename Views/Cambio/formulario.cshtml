@@ -1,0 +1,33 @@
+@model practicaprogra.Models.BoletaCompleta
+
+<form asp-action="GenerarBoleta" method="post">
+    @* Campos ocultos para el modelo Cambio *@
+    <input type="hidden" asp-for="Cambio.PaisOrigen" />
+    <input type="hidden" asp-for="Cambio.PaisDestino" />
+    <input type="hidden" asp-for="Cambio.MonedaRecibir" />
+    <input type="hidden" asp-for="Cambio.Cantidad" />
+    <input type="hidden" asp-for="Cambio.Resultado" />
+
+    @* Aquí los inputs del cliente (Nombre, DNI, etc.) *@
+    <div class="mb-3">
+        <label asp-for="Datos.NombreCompleto" class="form-label">Nombre completo</label>
+        <input asp-for="Datos.NombreCompleto" class="form-control" required />
+    </div>
+    <div class="mb-3">
+        <label asp-for="Datos.DNI" class="form-label">DNI</label>
+        <input asp-for="Datos.DNI" class="form-control" required />
+    </div>
+    <div class="mb-3">
+        <label asp-for="Datos.Correo" class="form-label">Correo</label>
+        <input asp-for="Datos.Correo" class="form-control" required />
+    </div>
+    <div class="mb-3">
+        <label asp-for="Datos.Telefono" class="form-label">Teléfono</label>
+        <input asp-for="Datos.Telefono" class="form-control" required />
+    </div>
+
+    <button type="submit" class="btn btn-success">Generar boleta</button>
+</form>
+
+
+

@@ -47,6 +47,31 @@ namespace practicaprogra.Controllers
 
         return View(modelo);
     }
+[HttpGet]
+public IActionResult Formulario(string PaisOrigen, string PaisDestino, string MonedaRecibir, decimal Cantidad, decimal Resultado)
+{
+    var modelo = new BoletaCompleta
+    {
+        Cambio = new CambioModel
+        {
+            PaisOrigen = PaisOrigen,
+            PaisDestino = PaisDestino,
+            MonedaRecibir = MonedaRecibir,
+            Cantidad = Cantidad,
+            Resultado = Resultado
+        },
+        Datos = new Boleta()
+    };
+
+    return View(modelo);
+}
+
+[HttpPost]
+public IActionResult GenerarBoleta(BoletaCompleta boletaCompleta)
+{
+    return View(boletaCompleta);
+}
+
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
     public IActionResult Error()

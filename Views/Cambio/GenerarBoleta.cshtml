@@ -1,0 +1,32 @@
+@model practicaprogra.Models.BoletaCompleta
+
+@{
+    ViewData["Title"] = "Boleta Generada";
+}
+
+<div class="container mt-5">
+    <div class="card shadow p-4">
+        <h2 class="text-center mb-4">Boleta de Cambio de Moneda</h2>
+
+        <h4 class="mb-3">Datos del Cliente</h4>
+        <ul class="list-group mb-4">
+            <li class="list-group-item"><strong>Nombre:</strong> @Model.Datos.NombreCompleto</li>
+            <li class="list-group-item"><strong>DNI:</strong> @Model.Datos.DNI</li>
+            <li class="list-group-item"><strong>Correo:</strong> @Model.Datos.Correo</li>
+            <li class="list-group-item"><strong>Teléfono:</strong> @Model.Datos.Telefono</li>
+        </ul>
+
+        <h4 class="mb-3">Detalle del Cambio de Moneda</h4>
+        <ul class="list-group mb-4">
+            <li class="list-group-item"><strong>País Origen:</strong> @Model.Cambio.PaisOrigen</li>
+            <li class="list-group-item"><strong>País Destino:</strong> @Model.Cambio.PaisDestino</li>
+            <li class="list-group-item"><strong>Moneda a Recibir:</strong> @Model.Cambio.MonedaRecibir</li>
+            <li class="list-group-item"><strong>Cantidad Enviada:</strong> @Model.Cambio.Cantidad</li>
+            <li class="list-group-item"><strong>Resultado del Cambio:</strong> @Model.Cambio.Resultado</li>
+        </ul>
+
+        <div class="text-center">
+            <a asp-action="Index" class="btn btn-primary">Realizar otro cambio</a>
+        </div>
+    </div>
+</div>

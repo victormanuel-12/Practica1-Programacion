@@ -41,7 +41,15 @@
         <div class="alert alert-success mt-4">
             @ViewBag.Mensaje
         </div>
-        <button><a class="nav-link text-dark" asp-area="" asp-controller="Cambio" asp-action="Formulario">Ingresar Datos</a></button>
+        <form asp-controller="Cambio" asp-action="Formulario" method="get">
+    <input type="hidden" name="PaisOrigen" value="@Model.PaisOrigen" />
+    <input type="hidden" name="PaisDestino" value="@Model.PaisDestino" />
+    <input type="hidden" name="MonedaRecibir" value="@Model.MonedaRecibir" />
+    <input type="hidden" name="Cantidad" value="@Model.Cantidad" />
+    <input type="hidden" name="Resultado" value="@Model.Resultado" />
+    <button type="submit" class="btn btn-primary">Ingresar Datos para Boleta</button>
+</form>
+
     }
 </div>
 
